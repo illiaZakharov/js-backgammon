@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.board {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+}
+
+.board-half {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    height: 100%;
+
+    background: #745c44;
+    border-top: 1.4em solid #745c44;
+    border-right: 1.5em solid #745c44;
+    border-bottom: 1.4em solid #745c44;
+    border-left: 1.5em solid #745c44;
+}
+
+.top-slots, .bottom-slots {
+    display: flex; 
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    background-color: #a98d70;
+}
+
+.top-slots {
+    border-radius: 3px 3px 0 0;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.bottom-slots {
+    border-radius: 0 0 3px 3px;
+    align-items: flex-end;
+    padding-bottom: 10px;
+}
+
+.slot {
+    position: relative;
+    width: calc(100%/6);
+    height: 100%;
+    background-color: #eddbb6;
+}
+
+.slot::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 50%;
+    background-color: #745c44;
+    transform: translate(-50%, 0);
+}
+
+.slot::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    border-radius: 100px;
+    border:2px solid #745c44;
+    transform: translate(-50%, 0);
+}
+
+.slot:first-child::before,
+.slot:last-child::before {
+    height: 65%;
+}
+
+.top-slots .slot {
+    border-radius: 100px 100px 0 0;
+    box-shadow: inset 0 7px 5px -8px #000;
+}
+
+.top-slots .slot::before {
+    top: 0;
+}
+
+.top-slots .slot::after {
+    top: 50%;
+}
+
+.top-slots .slot:first-child::after,
+.top-slots .slot:last-child::after {
+    top: 65%;
+}
+
+.bottom-slots .slot {
+    border-radius: 0 0 100px 100px;
+    box-shadow: inset 0 -7px 5px -8px #000;
+}
+
+.bottom-slots .slot::before {
+    bottom: 0;
+}
+
+.bottom-slots .slot::after {
+    bottom: 50%;
+}
+
+.bottom-slots .slot:first-child::after,
+.bottom-slots .slot:last-child::after {
+    bottom: 65%;
+}
